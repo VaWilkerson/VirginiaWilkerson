@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
-    public int speed = 1; 
+    public int speed = 1;
+    public bool isMoving = false;
     
     
     // Start is called before the first frame update
