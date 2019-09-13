@@ -1,2 +1,0 @@
-# VirginiaWilkerson
-CodeLab2 
