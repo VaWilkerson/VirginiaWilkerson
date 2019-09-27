@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class MoveTokensScript : MonoBehaviour {
-
-	protected GameManagerScript gameManager;
-	protected MatchManagerScript matchManager;
+	private GameManagerScript gameManager;
+	private MatchManagerScript matchManager;
 
 	public bool move = false;
 
@@ -16,22 +16,28 @@ public class MoveTokensScript : MonoBehaviour {
 
 	bool userSwap;
 
+<<<<<<< HEAD
 	protected GameObject exchangeToken1; //I'm unclear how the script knows which token is exchangeToken1.
+=======
+	private GameObject exchangeToken1;
+>>>>>>> origin/master
 	GameObject exchangeToken2;
 
 	Vector2 exchangeGridPos1; //Vector2 because it's an x/y coord? 
 	Vector2 exchangeGridPos2;
 
 	//this runs at the start
-	public virtual void Start () {
+	private void Start () {
 		gameManager = GetComponent<GameManagerScript>();
 		matchManager = GetComponent<MatchManagerScript>();
 		lerpPercent = 0; //Why do we declare this in start? 
 	}
 
 	//this runs every frame
-	public virtual void Update () {
+	private void Update () {
+		if (!move) return;
 		
+<<<<<<< HEAD
 		if(move){ //not 100% sure what move is doing here. 
 			//I'm guessing it makes the tokens change places but the move looks weird in the parentheses as a parameter. 
 			//that's all I got.
@@ -44,6 +50,16 @@ public class MoveTokensScript : MonoBehaviour {
 			if(exchangeToken1 != null){ //still not understanding something about exchangeToken1.
 				ExchangeTokens();
 			}
+=======
+		lerpPercent += lerpSpeed;
+
+		if(lerpPercent >= 1){
+			lerpPercent = 1;
+		}
+
+		if(exchangeToken1 != null){
+			ExchangeTokens();
+>>>>>>> origin/master
 		}
 	}
 
@@ -66,7 +82,7 @@ public class MoveTokensScript : MonoBehaviour {
 		this.userSwap = reversable;
 	}
 
-	public virtual void ExchangeTokens(){
+	private void ExchangeTokens(){
 
 		//this is going over my head. 
 		Vector3 startPos = gameManager.GetWorldPositionFromGridPosition((int)exchangeGridPos1.x, (int)exchangeGridPos1.y);
@@ -81,7 +97,12 @@ public class MoveTokensScript : MonoBehaviour {
 		exchangeToken1.transform.position = movePos1;//sets token1 to the pos of token2
 		exchangeToken2.transform.position = movePos2;//vice versa
 
+<<<<<<< HEAD
 		if(lerpPercent == 1){//WTF DOES LERPPERCENT DO??????
+=======
+		
+		if(Math.Abs(lerpPercent - 1) < 0.01f){
+>>>>>>> origin/master
 			gameManager.gridArray[(int)exchangeGridPos2.x, (int)exchangeGridPos2.y] = exchangeToken1;
 			gameManager.gridArray[(int)exchangeGridPos1.x, (int)exchangeGridPos1.y] = exchangeToken2;
 
@@ -95,7 +116,7 @@ public class MoveTokensScript : MonoBehaviour {
 		}
 	}
 
-	public virtual void MoveTokenToEmptyPos(int startGridX, int startGridY,
+	private void MoveTokenToEmptyPos(int startGridX, int startGridY,
 	                                int endGridX, int endGridY,
 	                                GameObject token){//still a little unclear about parameters in general.  
 	
@@ -106,12 +127,13 @@ public class MoveTokensScript : MonoBehaviour {
 
 		token.transform.position =	pos;
 
-		if(lerpPercent == 1){
+		if(Math.Abs(lerpPercent - 1) < 0.01f){
 			gameManager.gridArray[endGridX, endGridY] = token;
 			gameManager.gridArray[startGridX, startGridY] = null;
 		}
 	}
 
+<<<<<<< HEAD
 	public virtual bool MoveTokensToFillEmptySpaces(){ //help. 
 		bool movedToken = false;
 
@@ -125,11 +147,26 @@ public class MoveTokensScript : MonoBehaviour {
 							movedToken = true;
 						}
 					}
+=======
+	public bool MoveTokensToFillEmptySpaces(){
+		var movedToken = false;
+
+		for(var x = 0; x < gameManager.gridWidth; x++){
+			for(var y = 1; y < gameManager.gridHeight ; y++)
+			{
+				if (!ReferenceEquals(gameManager.gridArray[x, y - 1], null)) continue;
+				
+				for(var pos = y; pos < gameManager.gridHeight; pos++){
+					var token = gameManager.gridArray[x, pos];
+					if (ReferenceEquals(token, null)) continue;
+					MoveTokenToEmptyPos(x, pos, x, pos - 1, token);
+					movedToken = true;
+>>>>>>> origin/master
 				}
 			}
 		}
 
-		if(lerpPercent == 1){
+		if(Math.Abs(lerpPercent - 1) < 0.01f){
 			move = false;
 		}
 

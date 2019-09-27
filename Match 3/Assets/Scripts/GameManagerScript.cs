@@ -13,13 +13,14 @@ public class GameManagerScript : MonoBehaviour {
 	//8x8 grid. Got it. 
 	public float tokenSize = 1;
 
-	protected MatchManagerScript matchManager;
-	protected InputManagerScript inputManager;
-	protected RepopulateScript repopulateManager;
-	protected MoveTokensScript moveTokenManager;
+	private MatchManagerScript matchManager;
+	private InputManagerScript inputManager;
+	private RepopulateScript repopulateManager;
+	private MoveTokensScript moveTokenManager;
 
 	public GameObject grid;
 	public  GameObject[,] gridArray;
+<<<<<<< HEAD
 	protected Object[] tokenTypes; //Fuck. I think we talked about this in class, but why is this an Object and not a GameObject? 
 	//Is it because Objects can do less than GameObjects and the tokens don't need to do much? 
 	GameObject selected; //When I right click and go to Find Usages, it says "Usages of "selected" were not found. 
@@ -30,8 +31,19 @@ public class GameManagerScript : MonoBehaviour {
 		gridArray = new GameObject[gridWidth, gridHeight];//Is the purpose of defining gridArray in Start instead of where it's declared so that
 		//it could be redefined somewhere else or would that fuck shit up? 
 		//Edit: Tested below. It fucks shit up. 
+=======
+	private Object[] tokenTypes;
+	private GameObject _selected;
+
+	public virtual void Start () {
+		tokenTypes = Resources.LoadAll("Tokens/");
+		gridArray = new GameObject[gridWidth, gridHeight];
+>>>>>>> origin/master
 		MakeGrid();
+		
 		matchManager = GetComponent<MatchManagerScript>();
+		Debug.Assert(matchManager != null, "Attach a match manager to this object.");
+		
 		inputManager = GetComponent<InputManagerScript>();
 		repopulateManager = GetComponent<RepopulateScript>();
 		moveTokenManager = GetComponent<MoveTokensScript>();
@@ -45,7 +57,8 @@ public class GameManagerScript : MonoBehaviour {
 			} else {
 				inputManager.SelectToken();
 			}
-		} else {
+		} 
+		else {
 			if(!moveTokenManager.move){
 			//if(moveTokenManager.move){ //Didn't know what the ! in front did so I took it out and tested it.
 			//To clarify I know that != means not equal to, and that ! probably did something similar in this case but not what exactly the effect was.  
@@ -62,6 +75,7 @@ public class GameManagerScript : MonoBehaviour {
 	}
 
 	void MakeGrid() {
+<<<<<<< HEAD
 		grid = new GameObject("TokenGrid");	//Create a new GameObj called "TokenGrid"
 		//tested for the hell of it. Does what I thought it would. So ya know, small victories. 
 		for(var x = 0; x < gridWidth; x++){	//add to x until you hit gridWidth threshold. 
@@ -69,16 +83,34 @@ public class GameManagerScript : MonoBehaviour {
 				AddTokenToPosInGrid(x, y, grid); //tells the for loop what action to take until the condition is met. 
 				//Is the ++ effectively adding the method AddTokenToPosInGrid each time?
 				//I always thought of it as "add 1" like the number. I want to test this but don't know what I'd put there instead. 
+=======
+		grid = new GameObject("TokenGrid");
+		
+		for(int x = 0; x < gridWidth; x++)
+		{
+			for(int y = 0; y < gridHeight; y++)
+			{
+				AddTokenToPosInGrid(x, y, grid);
+>>>>>>> origin/master
 			}
 		}
 	}
 
 	protected virtual bool GridHasEmpty(){
+<<<<<<< HEAD
 		for(int x = 0; x < gridWidth; x++){
 			for(int y = 0; y < gridHeight ; y++){
 				//gridArray = new GameObject[gridWidth, gridHeight+1]; //Makes each spot in the top line all of the dog tokens stacked on top of each other. 
 				//Mostly I just wanted to insert this to see what it did. The answer is that it breaks the game. #TheMoreYouKnow
 				if(gridArray[x, y] == null){
+=======
+		for (int x = 0; x < gridWidth; x++)
+		{
+			for (int y = 0; y < gridHeight ; y++)
+			{
+				if (gridArray[x, y] == null)
+				{
+>>>>>>> origin/master
 					return true;
 				}
 			}
