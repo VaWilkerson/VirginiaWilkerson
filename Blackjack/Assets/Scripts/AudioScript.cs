@@ -45,17 +45,17 @@ public class AudioScript : MonoBehaviour
     
     
     // Update is called once per frame
-    void Update()
-    {
-        //if (BlackJackManager.DealerBusted();)    //this never works, I don't know why I keep trying it. 
-        //if the blackjack manager script function "dealer busted" runs, play the clip attached to this object. 
-        if (BlackJackManager.DealerBusted() ) //UGH. I cant figure out how to reference the function in the other script.
-            //That may not even be the way to do it, but it's annoying me that I can't even it it to work so I can text it.  
-        {
-            fartSound.Play(); //wanted me to add UnityEngine.Playables? 
-        }
-        
-    }
+//    void Update()
+//    {
+//        //if (BlackJackManager.DealerBusted();)    //this never works, I don't know why I keep trying it. 
+//        //if the blackjack manager script function "dealer busted" runs, play the clip attached to this object. 
+//        if (BlackJackManager.DealerBusted() ) //UGH. I cant figure out how to reference the function in the other script.
+//            //That may not even be the way to do it, but it's annoying me that I can't even it it to work so I can text it.  
+//        {
+//            fartSound.Play(); //wanted me to add UnityEngine.Playables? 
+//        }
+//        
+//    }
 }
 
 /*mmk. So I need to put an audio file in the project folder.

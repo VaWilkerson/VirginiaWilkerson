@@ -24,9 +24,22 @@ public class BlackJackManager : MonoBehaviour {
 	public AudioSource fartSoundEffect; 
 	public AudioClip fartSound;
 	
+	public SoundScript soundScript;	//gotta make a variable to reference to the SoundScript script. 
+	//because unity is a whiny little baby. 
+                                 
+	//in unity, make empty game object called AudioManager or w/e.
+	//put sound script on AudioManager and drag fart sound audio file into the public fart sound in the inspector. 
+	//in the blackjackmanager, drag the AudioManager game object into the public soundscriptvariable
+	//so it knows what to reference.  
+	
+
 	public void PlayerBusted(){
 		HidePlayerButtons();
-		GameOverText("YOU BUST", Color.red); 
+		GameOverText("YOU BUST", Color.red);
+		soundScript.PlayFartSound();	//tell it to get the PlayFartSound function from the
+		//soundScript variable that references the SoundScript... script.  c   
+		
+		
 		//gonna throw shit at the wall and see what sticks. 
 		
 		//AudioClipPlayable
