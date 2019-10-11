@@ -6,6 +6,8 @@ using UnityEngine.Playables;
 
 public class AudioScript : MonoBehaviour
 {
+    
+    //this was my first attmpt. For the working script, see SoundScript. 
     public AudioSource fartSoundEffect; //Audiosource says its for 3D which I dont really care about but maybe its ok for puttinf on a game obj? 
     public AudioClip fartSound;    //figured out I needed to put the actual clip somewhere. 
     
