@@ -16,6 +16,9 @@ public class BlackJackHand : MonoBehaviour {
 	protected List<DeckOfCards.Card> hand;
 	bool stay = false;
 
+	public AudioSource fartSound;
+
+	
 	// Use this for initialization
 	void Start () {
 		SetupHand();
@@ -24,7 +27,7 @@ public class BlackJackHand : MonoBehaviour {
 	protected virtual void SetupHand(){
 		deck = GameObject.Find("Deck").GetComponent<DeckOfCards>();
 		hand = new List<DeckOfCards.Card>();
-		HitMe();
+		HitMe(); //baby one more time
 		HitMe();
 	}
 	
@@ -65,8 +68,9 @@ public class BlackJackHand : MonoBehaviour {
 			
 		total.text = "Player: " + handVals;
 
-		if(handVals > 21){
+		if(handVals > 21){ 
 			GameObject.Find("BlackJackManager").GetComponent<BlackJackManager>().PlayerBusted();
+			fartSound.Play(); //???? I know fartSound.Play(); will play the sound out loud, but I don't know where to put it. 
 		}
 	}
 

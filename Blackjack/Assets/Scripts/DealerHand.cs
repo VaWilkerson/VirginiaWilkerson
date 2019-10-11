@@ -44,6 +44,7 @@ public class DealerHand : BlackJackHand {
 						manager.PlayerWin();
 					} else {
 						manager.PlayerLose();
+						//fartSound.Play(); //also no
 					}
 				}
 			}

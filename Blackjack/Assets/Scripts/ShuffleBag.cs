@@ -37,7 +37,7 @@ public class ShuffleBag<T> : ICollection<T>, IList<T>
 	}
 	
 	//This Constructor will let you do this: ShuffleBag<int> intBag = new ShuffleBag<int>(new int[] {1, 2, 3, 4, 5});
-	public ShuffleBag(T[] initalValues) {	//says ShuffleBag isn't being used so that seems bad. 
+	public ShuffleBag(T[] initalValues) {
 		for (int i = 0; i < initalValues.Length; i++) {
 			Add (initalValues[i]);
 		}

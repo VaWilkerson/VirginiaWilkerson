@@ -52,14 +52,7 @@ public class DeckOfCards : MonoBehaviour {
 
 			switch(cardNum){
 			case Type.A:
-				val = 11;	
-				//Ace should change if Ace = 11 puts the player's hand > 21.
-				// i = sum of the player's hand.
-				// A = 11
-				// If i > 21, A = 1
-				//Basically if 11 would make you bust, change the value of Ace to 1. 
-				
-				
+				val = 11;	 
 				break;
 			case Type.K:
 			case Type.Q:
