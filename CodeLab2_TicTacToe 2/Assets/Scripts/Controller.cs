@@ -21,7 +21,7 @@ public class Controller : MonoBehaviour
     {
         //tell model what the keypress was 
         //Still somewhat confused about this - GetInput and KeyKeyDown seem like they do pretty much the same thing. 
-        //_model.GetInput(1) looks like it's setting a number to be used later 
+        //_model.GetInput(1) looks like it's setting a number to be used later for the grid or something but I dont know. 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             _model.GetInput(1);

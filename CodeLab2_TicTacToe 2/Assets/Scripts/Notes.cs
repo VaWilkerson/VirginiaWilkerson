@@ -5,7 +5,7 @@ using UnityEngine;
 public class Notes : MonoBehaviour
 {
 /*
- Chapin helped me at code helpdesk
+ Chapin helped me at code helpdesk 
  
  I got it to put an O on the screen but it doesn't go where it should and I haven't tried getting it to swap to x. 
  
