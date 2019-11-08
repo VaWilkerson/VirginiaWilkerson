@@ -30,8 +30,9 @@ public class PaddleScript : MonoBehaviour
         //transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition.x));
         //mousePosition = new Vector3(mousePosition.x, mousePosition.y);
         var mousePos = Input.mousePosition;    
-        var wantedPos = Camera.main.ScreenToWorldPoint (new Vector3 (mousePos.x, 1, 20));
-        transform.position = wantedPos; 
-        
+        var wantedPos = Camera.main.ScreenToWorldPoint (new Vector3 (mousePos.x, 1, 10));
+        //took me a good 30 mins to figure out that i couldnt see it moving because it was behind the camera for some reason. 
+        transform.position = wantedPos;
+        //I dont know why the ball keeps passing through the paddle, they both have rigidbodies... 
     }
 }
