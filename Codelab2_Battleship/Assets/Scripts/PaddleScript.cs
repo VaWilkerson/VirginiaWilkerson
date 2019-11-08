@@ -7,15 +7,16 @@ public class PaddleScript : MonoBehaviour
     
     //private int speed = 1;
     private Rigidbody2D rb;
-    public int speed = 1;
-    
+    //public int speed = 1;
+    //private Vector3 pos = Input.mousePosition;
+    //Vector3 mousePosition;
 
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+        //pos = rb.transform.position;
     }
     
     
@@ -23,7 +24,14 @@ public class PaddleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //paddles moves with the mouse only on the x axis
+        //paddles moves with the mouse cursor
+        //pos.x = Input.GetAxis("Horizontal") * speed;
+        //this.transform.position = Input.mousePosition;    //lol nope 
+        //transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition.x));
+        //mousePosition = new Vector3(mousePosition.x, mousePosition.y);
+        var mousePos = Input.mousePosition;    
+        var wantedPos = Camera.main.ScreenToWorldPoint (new Vector3 (mousePos.x, 1, 20));
+        transform.position = wantedPos; 
         
     }
 }

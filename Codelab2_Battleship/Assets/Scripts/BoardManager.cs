@@ -40,3 +40,13 @@ public class BoardManager : MonoBehaviour
         }
     }
 }
+
+
+/*
+Tag bricks and ball.
+When ball collides with brick, destroy brick.
+
+Mouse X pos determines paddle x pos
+
+
+*/
