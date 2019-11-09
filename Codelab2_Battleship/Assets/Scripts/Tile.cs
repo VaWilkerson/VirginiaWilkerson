@@ -6,11 +6,11 @@ using UnityEngine.UIElements;
 
 public class Tile : MonoBehaviour
 {
- 
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -18,12 +18,20 @@ public class Tile : MonoBehaviour
     {
         
     }
+    
+    
 
+    /*private void OnTriggerEnter(Collider other)
+    {
+        Destroy(this.gameObject);
+    }*/
+
+    /*
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Brick")
+        if (collision.gameObject.tag == "Ball")
         {
             Destroy(this.gameObject);    //whelp this doesn't work as planned. 
         }
-    }
+    }*/
 }
