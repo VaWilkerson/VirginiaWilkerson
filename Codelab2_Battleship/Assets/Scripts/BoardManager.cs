@@ -34,7 +34,7 @@ public class BoardManager : MonoBehaviour
             {
                 GameObject gridSquare = Instantiate(tile);   
                 
-                gridSquare.transform.position = new Vector3(5, y) * tileOffset; 
+                gridSquare.transform.position = new Vector3(x, y) * tileOffset; 
             }
 
         }

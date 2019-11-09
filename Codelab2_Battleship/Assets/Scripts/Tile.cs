@@ -6,15 +6,7 @@ using UnityEngine.UIElements;
 
 public class Tile : MonoBehaviour
 {
-    //where is the tile
-    //x and y position 
-    //is the tile a ship?
-    
-    public bool isShip = false;
-    public bool isClicked = false; 
-    
-    
-    
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +19,11 @@ public class Tile : MonoBehaviour
         
     }
 
-    private void OnMouseDown()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (Input.GetMouseButtonDown(0))
+        if (collision.gameObject.tag == "Brick")
         {
-            //Vector3 position = isClicked;    
+            Destroy(this.gameObject);    //whelp this doesn't work as planned. 
         }
     }
 }

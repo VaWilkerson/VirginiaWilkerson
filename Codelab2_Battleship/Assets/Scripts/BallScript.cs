@@ -9,6 +9,8 @@ public class BallScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(5,3 );
+        //I dont understand why this has to be a new vector 2. 
     }
 
     // Update is called once per frame
