@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +19,12 @@ public class BallScript : MonoBehaviour
     {
         
     }
-   
-    
-    
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Brick"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
